@@ -10,11 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.example.android.contactlist.R.id.progressBar;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> {
     private static final String TAG = "Adapter";
@@ -25,11 +30,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName;
         ImageView myImage;
+        ProgressBar progressBar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             myImage = (ImageView) itemView.findViewById(R.id.myImageView);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
             itemView.setOnClickListener(this);
         }
 
@@ -43,7 +50,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public ContactAdapter(List<Contact> contactList, Context context) {
         this.context = context;
         this.contactList = contactList;
-        this.onItemClickListener = onItemClickListener;
+
+
     }
 
     public ContactAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -52,10 +60,27 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(ContactAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(final ContactAdapter.MyViewHolder holder, int position) {
+        holder.progressBar.setVisibility(View.VISIBLE);
         Contact contact = contactList.get(position);
         holder.tvName.setText(contact.getName());
-        Picasso.with(context).load(contact.getSmallImageURL()).into(holder.myImage);
+
+
+        Picasso.with(context).load(contact.getSmallImageURL())
+                .into(holder.myImage, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError() {
+
+                    }
+                });
+
+
+
     }
 
     public void setClickListener(OnItemClickListener onItemClickListener) {
