@@ -29,13 +29,16 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName;
+        TextView tvPhonenumber;
+
         ImageView myImage;
         ProgressBar progressBar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            tvName = (TextView) itemView.findViewById(R.id.tvName);
+            tvName = (TextView) itemView.findViewById(R.id.tvTitle_Name);
             myImage = (ImageView) itemView.findViewById(R.id.myImageView);
+            tvPhonenumber = (TextView) itemView.findViewById(R.id.tv_phoneNumber);
             progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
             itemView.setOnClickListener(this);
         }
@@ -64,6 +67,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         holder.progressBar.setVisibility(View.VISIBLE);
         Contact contact = contactList.get(position);
         holder.tvName.setText(contact.getName());
+        holder.tvPhonenumber.setText(contact.getPhone().getMobile());
 
 
         Picasso.with(context).load(contact.getSmallImageURL())

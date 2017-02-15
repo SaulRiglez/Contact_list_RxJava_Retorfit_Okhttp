@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
             @Override
             public void onCompleted() {
-                Log.d(TAG, "Task completed");
                 contactAdapter.notifyDataSetChanged();
 
             }
@@ -55,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
             public void onNext(List<Contact> contactList) {
                 for (Contact contact: contactList){
                     myContacts.add(contact);
+
                 }
             }
         };
@@ -67,7 +66,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     @Override
     public void onClick(View view, int position) {
         Contact contact = myContacts.get(position);
-        DetailContact contactDetail = new DetailContact(myContacts.get(position).getName(),myContacts.get(position).getLargeImageURL());
+        DetailContact contactDetail = new DetailContact(myContacts.get(position).getName()
+                ,myContacts.get(position).getLargeImageURL()
+                ,myContacts.get(position).getPhone().getMobile()
+                ,myContacts.get(position).getCompany());
         Intent intent = new Intent(this, ContactcDetailActivity.class);
         intent.putExtra("contact_detail",contactDetail);
         startActivity(intent);

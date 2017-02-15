@@ -12,15 +12,24 @@ public class DetailContact implements Parcelable{
 
     private String contactName;
     private String contactPictureLarge;
+    private String contactPhonenumber;
+    private String contactCompany;
 
-    public DetailContact(String contactName, String contactPictureLarge) {
+
+    public DetailContact(String contactName, String contactPictureLarge
+            , String contactPhonenumber
+            , String contactCompany) {
         this.contactName = contactName;
         this.contactPictureLarge = contactPictureLarge;
+        this.contactPhonenumber = contactPhonenumber;
+        this.contactCompany = contactCompany;
     }
 
     protected DetailContact(Parcel in) {
         contactName = in.readString();
         contactPictureLarge = in.readString();
+        contactPhonenumber = in.readString();
+        contactCompany = in.readString();
     }
 
     public String getContactName() {
@@ -31,11 +40,20 @@ public class DetailContact implements Parcelable{
         return contactPictureLarge;
     }
 
+    public String getContactPhonenumber() {
+        return contactPhonenumber;
+    }
+
+    public String getContactCompany() {
+        return contactCompany;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(contactName);
-
         dest.writeString(contactPictureLarge);
+        dest.writeString(contactPhonenumber);
+        dest.writeString(contactCompany);
     }
 
     @Override
