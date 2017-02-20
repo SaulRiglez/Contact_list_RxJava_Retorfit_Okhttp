@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
             }
 
             @Override
-            public void onNext(List<Contact> contactList) {
+            public void onNexgit t(List<Contact> contactList) {
                 for (Contact contact: contactList){
                     myContacts.add(contact);
 
