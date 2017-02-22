@@ -1,13 +1,13 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.android.contactlist.R;
+import com.example.android.contactlist.model.DetailContact;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -70,8 +70,8 @@ public class ContactcDetailActivity extends AppCompatActivity {
     @OnClick(R.id.detail_activity_background)
     void goBack(){
 
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this,MainActivity.class);
+        //startActivity(intent);
 
     }
 

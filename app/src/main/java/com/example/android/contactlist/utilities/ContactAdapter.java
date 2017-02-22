@@ -1,4 +1,4 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.utilities;
 
 /**
  * Created by User on 2/8/2017.
@@ -14,12 +14,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.android.contactlist.R;
+import com.example.android.contactlist.model.Contact;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import static com.example.android.contactlist.R.id.progressBar;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> {
     private static final String TAG = "Adapter";

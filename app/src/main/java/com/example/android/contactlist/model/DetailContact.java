@@ -1,8 +1,9 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.model;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 
 /**
  * Created by User on 2/8/2017.

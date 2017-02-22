@@ -1,4 +1,6 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.utilities;
+
+import com.example.android.contactlist.model.Contact;
 
 import java.util.List;
 

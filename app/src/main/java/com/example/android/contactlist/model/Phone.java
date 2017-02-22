@@ -1,4 +1,4 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.model;
 
 /**
  * Created by User on 2/8/2017.

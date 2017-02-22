@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.contactlist.ContactcDetailActivity">
+    tools:context="com.example.android.contactlist.view.ContactcDetailActivity">
 
 
     <LinearLayout
@@ -116,7 +116,7 @@
         android:id="@+id/tv_contact_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"/>
+        android:text="Home+"/>
 
         </LinearLayout>
 

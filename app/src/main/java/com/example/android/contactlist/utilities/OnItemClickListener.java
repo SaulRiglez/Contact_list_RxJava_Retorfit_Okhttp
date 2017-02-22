@@ -1,4 +1,4 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.utilities;
 
 import android.view.View;
 

@@ -1,4 +1,4 @@
-package com.example.android.contactlist;
+package com.example.android.contactlist.model;
 
 
 import com.google.gson.annotations.Expose;
